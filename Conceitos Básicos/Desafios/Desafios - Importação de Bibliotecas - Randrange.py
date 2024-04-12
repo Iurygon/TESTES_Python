@@ -6,9 +6,14 @@ from random import randrange
 '''
 RANDRANGE IRÁ SELECIONAR O VALOR ALEATÓRIO ENTRE UM DETERMINADO INTERVALO DE VALORES INTEIROS, PODENDO SER INFORMANDO O 'PASSO' ENTRE CADA VALOR
 '''
-nome = input('Digite o nome do seu usuário:')
+# nome = input('Digite o nome do seu usuário:')
 
-token = randrange(1000, 9998, 2)
+# token = randrange(1000, 9998, 2)
 
-print(f'Seja bem vindo, {nome}! Seu token de acesso é {token}.')
+# print(f'Seja bem vindo, {nome}! Seu token de acesso é {token}.')
 
+usuarios = ['iury', 'carlos', 'mateus', 'jose', 'pedro', 'paulo', 'adamastor']
+
+for user in usuarios:
+    token = randrange(1000, 9998, 2)
+    print(f'O usuário {user} recebeu o token {token} de acesso.')
