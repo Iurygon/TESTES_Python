@@ -34,7 +34,7 @@ finally:
 
 #CRIE UM CÓDIGO QUE RECEBE UMA LISTA DE LISTAS COM AS NOTAS DE 3 ESTUDANTES EM UMA PROVA. CADA ESTUDANTE RESPONDEU 5 QUESTÕES E AS RESPOSTAS VARIAM DE 'A' ATÉ 'D'. CASO ALGUM VALOR
 #QUE NÃO CONDIZ COM AS RESPOSTAS ACEITAS FOR INSERIDO, SERÁ NECESSÁRIO LANÇAR UM ERRO COM A MENSAGEM 'A alternativa [alternativa] não é uma opção de alternativa válida'
-
+'''
 notasEst1 = list(input('Digite as notas do primeiro estudante:'))
 notasEst2 = list(input('Digite as notas do segundo estudante:'))
 notasEst3 = list(input('Digite as notas do terceiro estudante:'))
@@ -53,10 +53,9 @@ def verificaAcertos(lista: list = [0]) -> int:
     comparativo = zip(lista, gabarito)
     for resp in comparativo:
         if resp[0] == resp[1]:
-            pontos += 1
-    print(f'O total de pontos desse aluno foi {pontos}.)
+            pontos = pontos + 1
+    print(f'O total de pontos desse aluno foi {pontos}')
 
-verificaAcertos(notasEst1)
 for lista in range(len(resultados)): 
     try:
         verificaErro(resultados[lista])
@@ -64,3 +63,8 @@ for lista in range(len(resultados)):
         print(IndE, f'Erro na lista {lista + 1}, com os valores {resultados[lista]} ')
     except ValueError as ValE:
         print(ValE, f'Erro na lista {lista + 1}, com os valores {resultados[lista]} ')
+    else:
+        verificaAcertos(resultados[lista])
+    finally:
+        print(f'Fim da análise do aluno na posição {lista + 1}')
+'''
