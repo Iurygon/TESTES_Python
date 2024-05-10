@@ -57,7 +57,10 @@ pa.hotkey('ctrl', 'u')
 pa.write('BASE_TESTES')
 pa.press('enter')
 time.sleep(3)
-#AUTOMATICAMENTE, O PROGRAMA JÁ IRÁ PRA ÁREA DE TRABALHO QUE FOR ABERTA, ENTÃO É SÓ INSERIR OS COMANDOS PARA INSERÇÃO DOS DADOS.
+#AUTOMATICAMENTE, O PROGRAMA JÁ IRÁ PRA ÁREA DE TRABALHO QUE FOR ABERTA, ENTÃO É SÓ INSERIR OS COMANDOS PARA INSERÇÃO DOS DADOS. PRIMEIRO, SERÃO EXCLUÍDOS OS DADOS DA TABELA
+pa.write('DELETE FROM PRODHASHTAG')
+pa.press('enter')
+pa.press('enter')
 for linha in dadosProd.index: #PERCORRE AS LINHAS DO ARQUIVO ONDE OS DADOS ESTÃO INSERIDOS
     #O MÉTODO .loc É USADO PARA ACESSAR UM LINHA OU COLUNAS ATRAVÉS DE SUAS LABELS, OU SEJA, SEUS NOMES. PRIMEIRO, FOI PASSADO A LINHA, QUE NESSE CASO, É A PRÓPRIA LINHA DO LAÇO FOR,
     #E DEPOIS FOI PASSADO A COLUNA ONDE SE ENCONTRA O VALOR, PASSANDO O NOME EXATO DAS COLUNAS DO ARQUIVO CSV
@@ -69,5 +72,11 @@ for linha in dadosProd.index: #PERCORRE AS LINHAS DO ARQUIVO ONDE OS DADOS ESTÃ
     custo       = str(dadosProd.loc[linha, 'custo'])
     obs         = str(dadosProd.loc[linha, 'obs'])
     
-    pa.write('INSERT INTO PRODHASHTAG VALUES ("'+codigo+'","'+marca+'","'+tipo+'","'+categoria+'","'+precoUni+'","'+custo+'","'+obs+'")')
+    if obs == 'nan':
+        pa.write("INSERT INTO PRODHASHTAG VALUES ('"+codigo+"','"+marca+"','"+tipo+"','"+categoria+"','"+precoUni+"','"+custo+"','""')")
+    else:
+        pa.write("INSERT INTO PRODHASHTAG VALUES ('"+codigo+"','"+marca+"','"+tipo+"','"+categoria+"','"+precoUni+"','"+custo+"','"+obs+"')")
     pa.press('enter')
+
+#DEPOIS DE SER FEITA A INCLUSÃO DO CÓDIGO, BASTA INSERIR OS DADOS NA TABELA COM F5
+pa.press('f5')
