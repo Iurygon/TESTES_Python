@@ -124,3 +124,49 @@ VALORES PASSADOS:
 '''
 # print(np.mean(Moscow)) SAÍDA: 98.89
 # print(np.mean(Kaliningrad)) SAÍDA: 74.56
+
+
+'''ESTIMATIVA DE VALORES'''
+'''
+UTILIZANDO ESSAS DUAS BIBLIOTECAS QUE VIMOS ATÉ AGORA, É POSSÍVEL FAZER A ESTIMATIVA DE ALGUNS VALORES. UMA MANEIRA DE FAZER ISSO É ATRÁVES DA REGRESSÃO LINEAR, EM QUE DEFINIMOS UMA FUNÇÃO PARA FAZER O CÁLCULO DO 
+COEFICIENTE LINEAR E ANGULAR DE UM GRÁFICO. DESSA FORMA, É POSSÍVEL TRAÇAR UM RETA ENTRE QUE O GRÁFICO QUE E SERÁ POSSÍVEL ESTIMAR VALORES.
+A EQUAÇÃO DA RETA É A SEGUINTE:
+
+Y = AX+B (A = COEFICIENTE ANGULAR, B = COEFICIENTE LINEAR)
+
+Os CÁLCULOs A A SEGUIR SÃO PARA CALCULARMOS OS COEFICIENTES ANGULAR E LINEAR:
+
+A = n * Soma(X * Y) - Soma(X) * Soma(Y) / n * Soma(X**2) - (Soma(X))**2  (n = NÚMERO DE ELEMENTOS)
+B = Media(Y) - A * Media(X)
+
+PODEMOS CALCULAR ENTÃO DA SEGUINTE FORMA:
+'''
+Y = Moscow
+X = datas
+x = datas
+n = np.size(Moscow)
+
+a = (n * np.sum(X * Y) - np.sum(X) * np.sum(Y)) / (n * np.sum(X**2) - np.sum(X)**2)
+a = (n*np.sum(X*Y) - np.sum(X)*np.sum(Y))/(n*np.sum(X**2)-np.sum(X)**2)
+b = np.mean(Y) - a * np.mean(X)
+
+y = a * X + b
+
+'''
+E AINDA, VERIFICAR NO PRÓPRIO GRÁFICO, FAZENDO UM COMPARATIVO DA RETA NO GRÁFICO COM OS PRÓPRIOS VALORES:
+'''
+# plt.plot(datas, Moscow)
+# plt.plot(x,y)
+# plt.show()
+
+'''
+A ESTIMAÇÃO DO VALOR DE UM PONTO QUE NÃO APARECE NO GRÁFICO PODE SER FEITA AGORA DA SEGUINTE FORMA:
+'''
+# plt.plot(datas, Moscow)
+# plt.plot(x,y)
+# plt.plot(41.5, 41.5*a+b, '*r')
+# plt.plot(100, 100*a+b, '*r')
+# plt.show()
+'''
+VEJA QUE BASTOU APENAS SUBSTITUIR O VALOR DE X E Y PARA GERAR O GRÁFICO E FOI USADO UM ASTERÍSCO PARA MARCAR O PONTO QUE ESTAVA SENDO BUSCADO
+'''
