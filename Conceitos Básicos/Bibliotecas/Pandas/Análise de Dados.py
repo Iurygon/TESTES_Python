@@ -52,12 +52,25 @@ BUSCANDO
 COMO OS DADOS NÃO FORAM CONCLUSIVOS, VAMOS VERIFICAR ATRAVÉS DE GRÁFICOS PARA TERMOS UMA PERSPECTIVA MAIS CLARA DOS DADOS
 '''
 
-import plotly.express as px
+# import plotly.express as px
 
-for coluna in tabela.columns:
-    grafico = px.histogram(tabela, x=coluna, color='cancelou', width=600)
-    grafico.show()
+# for coluna in tabela.columns:
+#     grafico = px.histogram(tabela, x=coluna, color='cancelou', width=600)
+#     grafico.show()
 
 '''
-AQUI, IMPORTAMOS A BIBLIOTECA PLOTLY.EXPRESS PARA GERAR UM GRÁFICO REFERENTE A CADA COLUNA DA TABELA, OU SEJA, 11 GRÁFICOS.
+AQUI, IMPORTAMOS A BIBLIOTECA PLOTLY.EXPRESS PARA GERAR UM GRÁFICO REFERENTE A CADA COLUNA DA TABELA, OU SEJA, 11 GRÁFICOS, MAS IREMOS FOCAR APENAS NOS GRÁFICO DAS COLUNAS 'dias_atraso'
+E 'ligacoes_callcenter'.
+
+ATRAVÉS DELES, CONSEGUIMOS VER QUE CLINTES QUE TIVERAM MAIS DE 20 DIAS DE ATRASO E QUE CLIENTES COM MAIS DE CINCO LIGAÇÕES PARA O CALLCENTER CANCELARAM SUAS ASSINATURAS. COM ESSAS
+INFORMAÇÕES, PODEMOS FAZER UMA NOVA VERIFICAÇÃO:
+'''
+# tabela = tabela[tabela['dias_atraso']<=20]
+# tabela = tabela[tabela['ligacoes_callcenter']<5]
+# print(tabela)
+# print(tabela['cancelou'].value_counts())
+# print(tabela['cancelou'].value_counts(normalize=True).map('{:.1%}'.format))
+
+'''
+COM ISSO, PODEMOS VER QUE OS VALORES ESTÃO BEM MAIS ACEITÁVEIS, PASSANDO DE UMA MÉDIA DE CANCELAMENTO PARA APENAS 18%.
 '''
