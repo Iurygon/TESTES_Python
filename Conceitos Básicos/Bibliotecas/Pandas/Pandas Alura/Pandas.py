@@ -97,3 +97,39 @@ TENDO O TOTAL DE DADOS, BASTA ENTÃO ADICIONAR O ARGUMENTO 'normalize = True' NO
 TAMBÉM SERÁ NECESSÁRIO USAR O MÉTODO 'to_frame', PARA CONVERTER A SERIES EM UM DATAFRAME ANTES, PARA QUE AÍ SIM FUNCIONA A ORDENAÇÃO
 '''
 # print(dadosResidenciais.Tipo.value_counts(normalize=True).to_frame().sort_values('Tipo'))
+
+
+'''
+TRATANDO VALORES NULOS
+
+O TRATAMENTO DE VALORES NULOS EM UMA BASE DE DADOS É EXTREMAMENTE IMPORTANTE PARA QUAISQUER ATIVIDADES QUE ENVOLVAM TAIS DADOS. AFINAL, OS VALORES NULOS PODEM OCASIONAR EM PROBLEMAS COMO ERROS DE TIPOS DE DADOS, 
+CAUSAR DIVERGÊNCIAS EM RELATÓRIOS, ETC. PARA FAZER A VERIFICAÇÃO DOS VALORES EM PYTHON, COM O PANDAS, PODEMOS USAR O MÉTODO 'isnull', QUE RETORNA UM BOOLEANO SE HÁ ALGUM RESULTADO É NULO OU NÃO:
+'''
+# print(dadosResidenciais.isnull())
+'''
+PARA UMA MELHOR EFICIÊNCIA EM ENCONTRAR SE HÁ TAIS VALORES, PODEMOS FAZER A SOMATÓRIA TOTAL DELES, AO INVÉS DE TER QUE ANÁLISAR O DATA FRAME COMPLETAMENTE
+'''
+# print(dadosResidenciais.isnull().sum()) SAÍDA:
+#                                           Tipo             0
+#                                           Bairro           0
+#                                           Quartos          0
+#                                           Vagas            0
+#                                           Suites           0
+#                                           Area             0
+#                                           Valor            9
+#                                           Condominio    1865
+#                                           IPTU          6879
+'''
+ASSIM, FOI VERIFICADO QUE EXISTEM VALORES NULOS NAS COLUNAS 'Valor', 'Condominio' E 'IPTU'. SENDO ASSIM, SERÁ FEITO O TRATAMENTO DOS VALORES, SUBSTITUINDO ELES POR '0' COM A FUNÇÃO 'fillna.
+'''
+dadosResidenciais = dadosResidenciais.fillna(0)
+# print(dadosResidenciais.isnull().sum()) SAÍDA:'
+#                                         Tipo          0
+#                                         Bairro        0
+#                                         Quartos       0
+#                                         Vagas         0
+#                                         Suites        0
+#                                         Area          0
+#                                         Valor         0
+#                                         Condominio    0
+#                                         IPTU          0
