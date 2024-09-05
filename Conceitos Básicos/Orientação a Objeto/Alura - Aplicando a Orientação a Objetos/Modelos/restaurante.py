@@ -1,22 +1,24 @@
 '''
 DECLARAÇÃO DE CLASSES DE OBJETOS EM PYTHON
 '''
-class Restaurante():
-    nome        = ''
-    categoria   = ''
-    ativo       = False
+# class Restaurante():
+#     nome        = ''
+#     categoria   = ''
+#     ativo       = False
+
+
 
 '''
 CRIANDO NOVAS INSTÂNCIAS DESSA CLASSE
 '''
-restaurantePraca = Restaurante()
-restaurantePraca.nome       = 'Restaurante Praça'
-restaurantePraca.categoria  = 'Italiana'
+# restaurantePraca = Restaurante()
+# restaurantePraca.nome       = 'Restaurante Praça'
+# restaurantePraca.categoria  = 'Italiana'
 
-if restaurantePraca.categoria in ['Italiana', 'Pizzaria', 'Mineira', 'FastFood']:
-    restaurantePraca.ativo  = True
+# if restaurantePraca.categoria in ['Italiana', 'Pizzaria', 'Mineira', 'FastFood']:
+#     restaurantePraca.ativo  = True
 
-print(f'O restaurante {restaurantePraca.nome} atualmente está {"Ativo" if restaurantePraca.ativo == True else "Inativo"} e tem um cardápio de comida {restaurantePraca.categoria}')
+# print(f'O restaurante {restaurantePraca.nome} atualmente está {"Ativo" if restaurantePraca.ativo == True else "Inativo"} e tem um cardápio de comida {restaurantePraca.categoria}')
 
 '''
 VISUALIZANDO OS DADOS DE UM OBJETO

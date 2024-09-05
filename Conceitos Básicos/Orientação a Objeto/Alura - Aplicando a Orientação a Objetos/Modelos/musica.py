@@ -19,11 +19,15 @@ class Musica():
         return f'Música {self._nome} do artista/banda {self._artista}'
     def listarMusicas():
         for musica in Musica.listaDeMusicas:
-            print(f'Música: {musica._nome} | Artista/Banda: {musica._artista} | Duração: {musica._duracao} segundos')
+            print(f'Música: {musica._nome} | Artista/Banda: {musica._artista} | Duração: {musica.duracao} segundos')
 
-    @property
-    def _duracao():
-        
+    @property                                   
+    def duracao(self):
+        return f'{str(int(int(self._duracao) / 60))}:{str(int(int(self._duracao) % 60))}'
+    
+#O COMANDO ACIMA É O QUE É CHAMADO DE DECORATOR, UMA FERRAMENTA EM PYTHON QUE PERMITE 'ENVOLOPAR' UMA FUNÇÃO, EXTENDENDO SEU COMPORTAMENTO E ADICIONANDO NOVAS FUNCIONALIDADES, MAS SEM
+#ALTERAR A FUNÇÃO PROPRIAMENTE DITA. NESSE CASO, A FUNÇÃO DO DECORATOR @PROPERTY É CONVERTER UM MÉTODO EM UMA UM ATRIBUTO, POR ISSO É POSSÍVEL REALIZAR O ACESSO USANDO 'musica.duracao',
+#COMO NO EXEMPLO ACIMA
 
 #O PRIMEIRO PARÂMETRO PASSADO, 'self' INDICA QUE AQUELAS PROPRIEDADES SÃO PRÓPRIAS DAQUELE OBJETO, OU SEJA, CADA INSTÂNCIA DE UMA NOVA MÚSICA, NO EXEMPLO, TERÁ SEU PRÓPRIO NOME, ARTISTA E DURAÇÃO DEFINIDOS. EM SUMA, INDICA QUE AQUELA PROPRIEDADE EM QUESTÃO É DAQUELE OBJETO REFERENCIADO
 #E UM DETALHE, O TERMO UTILIZADO FOI 'self', MAS PODERIA SER USADO QUALQUER OUTRO, CONTANDO QUE DEPOIS FOSSE FEITA A REFERÊNCIA 'termo.atributo'. O TERMO SELF É USADO NORMALMENTE POR CONVEÇÃO E PADRONIZAÇÃO
