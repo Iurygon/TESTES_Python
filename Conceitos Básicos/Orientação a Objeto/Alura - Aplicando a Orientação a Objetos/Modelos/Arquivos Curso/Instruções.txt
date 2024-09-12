@@ -1,0 +1,25 @@
+Diretório 'modelos' e arquivo 'app.py':
+
+	São onde se encontram os códigos de definição das classes usadas durante o curso, toda a parte de programação orientada a objeto em si.
+
+
+Diretório 'venv':
+	
+	Onde se encontram os arquivos do ambiente virtual venv (virtual enviroment). Um ambiente virtual simula uma configuração padrão de versões dos arquivos e programas onde o código será executado, assim evitando que ocorra alguma falha por incompatibilidade de versão.
+	É criado com o comando 'python -m venv caminho/nomeDaVenv'
+
+Os arquivos da venv são:
+	Include    -> Pasta com o cabeçalho dos ambientes e módulos que serão escritos no projeto.
+	lib	   -> Armazena todos os pacotes e dependências instalados no ambiente virtual. Contém apenas o pip inicialmente, mas conforme demais módulos são instalados, serão adicionados à pasta
+	Scripts	   -> Onde estão armazenados os scripts do ambiente virtual. Sempre que quisermos ativar o ambiente, por exemplo, usaremos o script que starta o processo
+	pyvenv.cfg -> Contém as informações do ambiente virtual
+
+	No Windows, o acesso é feito com './venv/Scripts/activate', e no terminal, antes do caminho, terá escrito (venv), indicado que o ambiente está ativo.
+	Para desativar, é com 'deactivate'
+
+	É adotado como boas práticas criar um arquivo txt que liste quais pacotes foram instalados e suas versões, o que é feito com o comando 'pip freeze > requirements.txt'. Requirement.txt é o nome é que normalmente usado para o arquivo 
+
+
+Diretório 'API':
+
+	Onde se encontram os dados da API usada durante o curso.
