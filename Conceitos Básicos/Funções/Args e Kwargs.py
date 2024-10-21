@@ -18,10 +18,11 @@ UTILIZANDO O *ARGS
 '''
 
 def somaNumerosArgs(*args):
-    resultado: 0
+    print(args)
+    resultado = 0
     for num in args:
         resultado += num
-    return resultado
+    print(resultado)
 
 somaNumerosArgs(1,2,5,10,50,7,9,20)
 '''
@@ -40,4 +41,18 @@ somaNumeros(num1 = 3, num3 = 1, num2 = 2) -> AQUI, OS VALORES SÃO PASSADOS COMO
 
 É PRECISO TER CUIDADO QUANDO FOR MISTURAR OS DOIS TIPOS NA CHAMADO DE UMA FUNÇÃO, POIS ELES SEMPRE OBEDECEM A ORDEM
 DE PASSAGENS POR POSIÇÃO PRIMEIRO E PASSAGENS POR CHAVE EM SEGUNDO
+
+O USO DE KWARGS PODERIA SER FEITO DA SEGUINTE FORMA:
+'''
+def somaMaisNumeros(**kwargs):
+    print(kwargs)
+    resultado = 0
+    for num in kwargs:
+        resultado += kwargs[num]
+    print(resultado)
+
+somaMaisNumeros(num1 = 1, num3 = 4, num2 = 7, abc = 6, outroNumero = 10)
+
+'''
+ENQUANTOS OS ARGS CRIAM UMA TUPLA COM OS VALORES PASSADOS, OS KWARGS CRIAM UM DICIONÁRIO COM TAIS VALORES
 '''
